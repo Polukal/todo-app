@@ -48,12 +48,12 @@ function App() {
     function getMessage(){
       const percentage = (numberComplete)/(numberTotal+1) * 100;
       if(percentage === 0){
-        return "Take them by storm "
+        return "Take them by storm ⚡"
       }
       if(numberComplete === numberTotal){
         return "Nice job for today!"
       }
-      return "Keep it going "
+      return "Keep it going 💪"
     }
 
 
