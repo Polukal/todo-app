@@ -1,6 +1,6 @@
 body{
-    background-color: #17181f;
-    color: #aaa;
+    background-color: #000000;
+    color: #ddd;
 }
 
 *{
@@ -10,7 +10,16 @@ body{
 main{
     max-width: 300px;
     margin: 20px auto;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    
+    z-index: 1;
+    
+    
 }
+
+
 
 form{
     border: 3px solid #30313D;
@@ -42,10 +51,85 @@ div.task{
     padding: 5px 9px;
     margin-top: 5px;
     display: flex;
+    transition: opacity .3s linear;
+    align-items: center;
 }
 
 div.task svg{
     height: 20px;
-    margin-right: 4px;
+    margin-right: 6px;
+    fill: #61DAFB;
+}
+
+div.task.done{
+    opacity: 0.3;
+}
+
+div.task-name{
+    flex-grow: 1;
+}
+
+div.task span{
+    position: relative;
+    flex-grow: 1;
+}
+
+div.task span:before{
+    content: "";
+    display: block;
+    width: 0;
+    height: 1.4px;
+    background-color: #ddd;
+    position: absolute;
+    top: 10px; 
+    transition: width .14s linear;  
+}
+
+div.task.done span:before{
+    width: 100%;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+div.checkbox{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+button.trash{
+    background: none;
+    border: none;
+    display: flex;
+    cursor: pointer;
+}
+
+button.trash svg{
+    fill: #888;
+    height: 14px;
+}
+
+button.clear{
+    background-color: #61DAFB;
+    border:0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 2px 9px;
+    margin-top: 8px;
+    margin-left: 70%;
+
+}
+
+div.background{
+    width: 100%;
+    height: 100vh;
     
+}
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

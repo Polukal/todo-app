@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Background from './Background';
+import Clear from './Clear';
 import Task from './Task';
 import TaskForm from './TaskForm';
 
@@ -23,14 +25,63 @@ function App() {
         })
     }
 
+    function removeTask(indexToRemove) {
+      setTasks(prev => {
+        return prev.filter((taskObject,index) => index !== indexToRemove)
+      })
+    }
+
+    function removeCompletedTasks(){
+      setTasks(prev => {
+        return prev.filter(tasks => tasks.done === false )
+      })
+    }
+
+    function updateTaskDone(taskIndex, newDone){
+      setTasks(prev => {
+        const newTasks = [...prev];
+        newTasks[taskIndex].done = newDone
+        return newTasks
+      })
+    }
+
+    function getMessage(){
+      const percentage = numberComplete/numberTotal * 100;
+      if(percentage === 0){
+        return "Try to do at least one!"
+      }
+      if(percentage === 100){
+        return "Nice job for today!"
+      }
+      return "Keep it going "
+    }
+
+
+    const numberComplete = tasks.filter(t => t.done).length
+    const numberTotal = tasks.length
+    
+
   return (
+    <>
+    
     <main>
+      <h1>{numberComplete}/{numberTotal} Complete</h1>
+      <h2>{getMessage()}</h2>
       <TaskForm onAdd={addTask}/>
-      {tasks.map(task => (
-        <Task {...task}/>
-      ) )}
+      {tasks.map((task, index) => (
+        <Task {...task} 
+        onTrash={() => removeTask(index)}
+        onToggle={ done => updateTaskDone(index, done)}/>
+      ))}
+
+      <Clear onClear={() => removeCompletedTasks()}/>
+     
     </main>
-  );
+    
+    <Background/>
+    
+    </>
+    );
 }
 
 export default App;
