@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Background from './Background';
+import Background from './Background'
 import Clear from './Clear';
 import Task from './Task';
 import TaskForm from './TaskForm';
@@ -62,9 +62,12 @@ function App() {
     
 
   return (
-    <>
     
     <main>
+
+      <Background/>
+
+      <div className='content'>
       <h1>{numberComplete}/{numberTotal} Complete</h1>
       <h2>{getMessage()}</h2>
       <TaskForm onAdd={addTask}/>
@@ -75,12 +78,11 @@ function App() {
       ))}
 
       <Clear onClear={() => removeCompletedTasks()}/>
-     
+      </div>
+      
     </main>
+
     
-    <Background/>
-    
-    </>
     );
 }
 
