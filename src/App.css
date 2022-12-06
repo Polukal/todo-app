@@ -39,7 +39,7 @@ form input[type="text"] {
 }
 
 form button{
-    background-color: #61DAFB;
+    background-color: #49628C;
     border:0;
     border-radius: 6px;
     cursor: pointer;
@@ -58,7 +58,7 @@ div.task{
 div.task svg{
     height: 20px;
     margin-right: 6px;
-    fill: #61DAFB;
+    fill: #49628C;
 }
 
 div.task.done{
@@ -112,7 +112,7 @@ button.trash svg{
 }
 
 button.clear{
-    background-color: #61DAFB;
+    background-color: #49628C;
     border:0;
     border-radius: 10px;
     cursor: pointer;
