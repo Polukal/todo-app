@@ -46,11 +46,11 @@ function App() {
     }
 
     function getMessage(){
-      const percentage = numberComplete/numberTotal * 100;
+      const percentage = (numberComplete)/(numberTotal+1) * 100;
       if(percentage === 0){
-        return "Try to do at least one!"
+        return "Take them by storm "
       }
-      if(percentage === 100){
+      if(numberComplete === numberTotal){
         return "Nice job for today!"
       }
       return "Keep it going "
